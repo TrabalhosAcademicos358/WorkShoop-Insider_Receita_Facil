@@ -1,15 +1,25 @@
 import { TouchableOpacity, View, Text, Image } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
 
 import { styles } from '../styles';
+import { namePages } from '../routes/namePages.js'
 
-export default function Food({ name, total_ingredients, time, cover }) {
+export default function Food({ data }) {
+    const navigation = useNavigation();
+
+    function handleNavigate() {
+        navigation.navigate(namePages.detail, {data: data})
+    }
+    
     return (
-        <TouchableOpacity activeOpacity={0.55} style={styles.card}>
-            <Image source={{ uri: cover }} style={styles.image} />
+        <TouchableOpacity activeOpacity={0.55} style={styles.card} onPress={handleNavigate}>
+            <Image source={{ uri: data.cover }} style={styles.image} />
             <View style={styles.cardViewText}>
-                <Text style={styles.cardTitle}>{name}</Text>
-                <Text style={styles.cardText}>{total_ingredients} ingredientes | {time} min</Text>
+                <Text style={styles.cardTitle}>{data.name}</Text>
+                <Text style={styles.cardText}>
+                    {data.total_ingredients} ingredientes | {data.time} min
+                </Text>
             </View>
             <LinearGradient 
                 style={styles.linearGradient}
