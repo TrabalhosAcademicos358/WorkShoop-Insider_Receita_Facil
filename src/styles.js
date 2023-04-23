@@ -69,3 +69,20 @@ export const styles = StyleSheet.create({
         color: "#FFF",
     },
 })
+
+export const stylesLogo = StyleSheet.create({
+    view: {
+        alignSelf: "flex-start",
+        backgroundColor: "#4CBE6C",
+        paddingHorizontal: 16,
+        paddingVertical: 8,
+        marginBottom: 8,
+        borderRadius: 9,
+        borderBottomRightRadius: 32
+    },
+    text: {
+        color: "#fff",
+        fontWeight: 700,
+        fontSize: 18
+    }
+})
