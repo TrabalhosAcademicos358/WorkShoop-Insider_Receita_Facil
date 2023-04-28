@@ -1,5 +1,11 @@
 import { StyleSheet } from "react-native";
 
+const color = {
+    white: "#fff",
+    black: "#000",
+    logo: "#4CBE6C"
+}
+
 export const styles = StyleSheet.create({
     page: {
         backgroundColor: "#F3F9FF",
@@ -31,7 +37,7 @@ export const styles = StyleSheet.create({
         zIndex: 1
     },
     viewSearch: {
-        backgroundColor: "#FFF",
+        backgroundColor: color.white,
         height: 52,
         marginTop: 18,
         marginBottom: 22,
@@ -60,20 +66,20 @@ export const styles = StyleSheet.create({
         zIndex: 2
     },
     cardTitle: {
-        color: "#FFF",
+        color: color.white,
         fontSize: 18,
         fontWeight: 700,
     },
     cardText: {
         fontSize: 14,
-        color: "#FFF",
+        color: color.white
     },
 })
 
 export const stylesLogo = StyleSheet.create({
     view: {
         alignSelf: "flex-start",
-        backgroundColor: "#4CBE6C",
+        backgroundColor: color.logo,
         paddingHorizontal: 16,
         paddingVertical: 8,
         marginBottom: 8,
@@ -84,5 +90,60 @@ export const stylesLogo = StyleSheet.create({
         color: "#fff",
         fontWeight: 700,
         fontSize: 18
+    }
+})
+
+export const stylesDetail = StyleSheet.create({
+    page: {
+        paddingTop: 20,
+    },
+    name: {
+        fontSize: 18,
+        fontWeight: 700,
+        color: color.black
+    },
+    foodName: {
+        marginBottom: 8
+    },
+    foodIngredients: {
+        fontSize: 18,
+        marginBottom: 24
+    },
+    card: {
+        backgroundColor: color.white,
+        width: "100%",
+        paddingVertical: 14.5,
+        paddingHorizontal: 9,
+        marginBottom: 14,
+        borderRadius: 8,
+        flexDirection: "row",
+        justifyContent: "space-between",
+    },
+    cardTitle: {
+        backgroundColor: color.logo,
+        color: color.white,
+        marginTop: 16,
+        marginBottom: 15,
+        paddingVertical: 7,
+        paddingHorizontal: 11,
+        width: "100%",
+        fontSize: 18,
+        fontWeight: 700,
+    },
+    amount: {
+        fontSize: 14,
+        color: color.black
+    },
+    instruction: {
+        flexDirection: "row",
+        alignItems: "center",
+        marginBottom: 9
+    },
+    instructionNumber: {
+        fontSize: 20,
+        fontWeight: 700
+    },
+    instructionText: {
+        fontSize: 14
     }
 })
