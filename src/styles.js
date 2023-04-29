@@ -28,10 +28,8 @@ export const styles = StyleSheet.create({
     },
     linearGradient: {
         position: "absolute",
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
+        top: 0, left: 0,
+        right: 0, bottom: 0,
         borderRadius: 14,
         backgroundColor: "transparent",
         zIndex: 1
@@ -97,6 +95,20 @@ export const stylesDetail = StyleSheet.create({
     page: {
         paddingTop: 20,
     },
+    header: {
+        flexDirection: "row", 
+        justifyContent: "space-between", 
+        alignItems: "center"
+    },
+    playIcon: {
+        position: "absolute",
+        top: 0, right: 0, 
+        left: 0, bottom: 0,
+        zIndex: 2,
+        height: "100%",
+        justifyContent: "center",
+        alignItems: "center"
+    },
     name: {
         fontSize: 18,
         fontWeight: 700,
@@ -144,6 +156,7 @@ export const stylesDetail = StyleSheet.create({
         fontWeight: 700
     },
     instructionText: {
-        fontSize: 14
+        fontSize: 14,
+        lineHeight: 20
     }
 })
