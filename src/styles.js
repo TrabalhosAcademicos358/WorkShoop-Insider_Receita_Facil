@@ -133,7 +133,7 @@ export const stylesDetail = StyleSheet.create({
     },
     cardTitle: {
         backgroundColor: color.logo,
-        color: color.white,
+        color: color.white  ,
         marginTop: 16,
         marginBottom: 15,
         paddingVertical: 7,

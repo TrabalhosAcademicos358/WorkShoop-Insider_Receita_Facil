@@ -13,7 +13,7 @@ import {
 } from '@expo/vector-icons';
 import { 
     useLayoutEffect, 
-    useState 
+    useState,
 } from "react";
 
 import { 
@@ -36,17 +36,16 @@ export default function Detail() {
     const food = route.params?.data || [];
 
     const [showVideo, setShowVideo] = useState(false);
-    const [hasFavorite, setHasFavorite] = useState(false);
-    const [heart, setHeart] = useState("heart-outline");
+    const [hasFavorite, setHasFavorite] = useState(true);
 
     useLayoutEffect(() => {
-        async function handleStatusFavorite () {
+        async function updateFavorite () {
             const receipeFavorite = await isFavorite(food) 
             setHasFavorite(receipeFavorite);
         }
 
-        handleStatusFavorite()
-
+        updateFavorite()
+        
         navigation.setOptions({
             title: food? food.name : "Detalhes da receita",
             headerRight: () => (
@@ -72,11 +71,12 @@ export default function Detail() {
         }
     }
 
-    function handleFavorite() {
-        if (hasFavorite)
-            saveFavorites(food);
+    async function handleFavorite() {
+        if (!hasFavorite) 
+            await saveFavorites(food);
         else
-            removeFavorites(food);
+            await removeFavorites(food);
+        setHasFavorite(!hasFavorite)
     }
 
     return (

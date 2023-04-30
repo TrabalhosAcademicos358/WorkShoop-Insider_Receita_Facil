@@ -12,10 +12,10 @@ export async function saveFavorites(food) {
     const hasItem = currentFavorites.some(item => item.id === food.id);
     if (hasItem) return null;
 
-    const newFavorites = JSON.stringify({ 
-        ...currentFavorites,
+    const newFavorites = JSON.stringify([
+        ...currentFavorites, 
         food
-    });
+    ]);
 
     const favorites = await AsyncStorage.setItem(key, newFavorites);
     return favorites;
@@ -23,7 +23,7 @@ export async function saveFavorites(food) {
 
 export async function removeFavorites(food) {
     const favorites = await getFavorites();
-    const newFavorites = favorites.filter(item => item.id != food.id);
+    const newFavorites = favorites.filter(item => item.id !== food.id);
     await AsyncStorage.setItem(key, JSON.stringify(newFavorites))
     return newFavorites;
 }
@@ -31,6 +31,5 @@ export async function removeFavorites(food) {
 export async function isFavorite(food) {
     const favorites = await getFavorites();
     const hasItem = favorites.some(item => item.id === food.id);
-    console.log(hasItem)
     return hasItem;
 }
