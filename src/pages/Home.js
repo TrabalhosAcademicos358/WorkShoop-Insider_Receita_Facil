@@ -1,4 +1,5 @@
-import { SafeAreaView, Text } from "react-native";
+import { SafeAreaView } from "react-native";
+import { Text } from "moti";
 import { styles } from "../styles";
 
 import ListFood from "../components/ListFood.js";
@@ -11,7 +12,12 @@ export default function Home() {
     return (
         <SafeAreaView style={styles.page}>
             <Logo />
-            <Text style={styles.title}>
+            <Text 
+                style={styles.title}
+                from={{ opacity: 0, translateY: 10 }}
+                animate={{ opacity: 1, translateY: 0 }}
+                transition={{ type: 'timing', duration: 750 }}    
+            >
                 Encontre a receita
                 que combina com você
             </Text>
